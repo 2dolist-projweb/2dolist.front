@@ -18,9 +18,9 @@
   </li>
 </ul>
 
-<div class="card bg-light">
+<div *ngFor="let lista of listas" class="card bg-light">
   <div class="card-body">
-      <h5 class="card-title">Compras no supermercado</h5>
+      <h5 class="card-title">{{lista.descricao}}</h5>
 
       <ul class="list-group">
           <li class="list-group-item list-group-item-success"><input type="checkbox" checked=true> Açúcar</li>
