@@ -1,0 +1,18 @@
+<div *ngFor="let lista of listas" class="card bg-light">
+  <div class="card-body">
+      <h5 class="card-title">{{lista.descricao}}</h5>
+
+      <ul class="list-group">
+          <li class="list-group-item list-group-item-success"><input type="checkbox" checked=true> Açúcar</li>
+          <li class="list-group-item"><input type="checkbox"> Feijão</li>
+          <li class="list-group-item"><input type="checkbox"> Leite</li>
+          <li class="list-group-item"><input type="checkbox"> Carne vermelha</li>
+          <li class="list-group-item"><input type="checkbox"> Detergente</li>
+      </ul>
+
+      <p class="card-text">Eu não posso esquecer nada dessa lista. Pedrinho disse que o leite pode ser desnatado.</p>
+      <a href="#" class="btn btn-success">Editar</a>
+      <a href="#" class="btn btn-warning">Concluir</a>
+      <a href="#" class="btn btn-danger">Remover</a>
+  </div>
+</div>
