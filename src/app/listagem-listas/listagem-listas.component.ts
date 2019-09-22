@@ -22,4 +22,11 @@ export class ListagemListasComponent implements OnInit {
     })
   }
 
+  onDeleteItemLista(deletou) {
+    if (deletou)
+    {
+      this.loadLists();
+    }
+  }
+
 }

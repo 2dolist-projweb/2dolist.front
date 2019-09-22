@@ -2,7 +2,7 @@
   <div class="row">
     <div *ngFor="let lista of listas" class="col-sm-3">
         <div>
-          <app-lista [lista]="lista"></app-lista>
+          <app-lista [lista]="lista" (deleteLista)="onDeleteItemLista($event)"></app-lista>
         </div>
     </div>
   </div>

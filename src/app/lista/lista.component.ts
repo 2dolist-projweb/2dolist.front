@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { ListaService } from '../services/listas.service';
 import { Lista } from '../models/lista';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista',
@@ -10,10 +11,18 @@ import { Lista } from '../models/lista';
 export class ListaComponent implements OnInit {
 
   @Input() lista: Lista;
-  constructor () {}
+  @Output() deleteLista = new EventEmitter();
+  constructor (private listaService: ListaService, private router: Router) {}
 
   ngOnInit(): void {
   } 
+
+  deleteItem() {
+    this.listaService.deleteLista(this.lista.id).subscribe(retorno => {
+      this.deleteLista.emit(true);
+    });
+    // this.router.navigateByUrl('/listas');
+  }
 
   bodyClass(): string
   {
@@ -37,7 +46,7 @@ export class ListaComponent implements OnInit {
       default: cssClass = "card bg-light";
       break;
     }
-    
+
     return cssClass;
   }
 }

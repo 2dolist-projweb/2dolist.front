@@ -26,4 +26,8 @@ export class ListaService{
     postLista(lista: Lista) {
         return this.http.post<Lista>(this.baseUrl + 'listas', lista, this.httpOptions);
     }
+
+    deleteLista(id: number) {
+        return this.http.delete(this.baseUrl + 'listas/' + id);
+    }
 }
