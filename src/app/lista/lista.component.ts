@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ListaService } from '../services/listas.service';
 import { Lista } from '../models/lista';
 
@@ -9,19 +9,9 @@ import { Lista } from '../models/lista';
 })
 export class ListaComponent implements OnInit {
 
-  constructor (private listasService: ListaService) {}
-
-  listas: Lista[];
+  @Input() lista: Lista;
+  constructor () {}
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.loadLists();
-  }
-
-  loadLists() {
-    this.listasService.getUsers().subscribe((rListas: Lista[]) => {
-      this.listas = rListas;
-    })
-  }  
+  } 
 }

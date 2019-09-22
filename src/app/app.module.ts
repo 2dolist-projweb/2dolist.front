@@ -15,6 +15,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { DadosGrupoComponent } from './dados-grupo/dados-grupo.component';
 import { NovaListaComponent } from './nova-lista/nova-lista.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ListagemListasComponent } from './listagem-listas/listagem-listas.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { NovaListaComponent } from './nova-lista/nova-lista.component';
     NavBarComponent,
     HomeComponent,
     DadosGrupoComponent,
-    NovaListaComponent
+    NovaListaComponent,
+    ListagemListasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
