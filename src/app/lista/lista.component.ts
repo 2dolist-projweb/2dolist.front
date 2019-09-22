@@ -14,4 +14,30 @@ export class ListaComponent implements OnInit {
 
   ngOnInit(): void {
   } 
+
+  bodyClass(): string
+  {
+    var cssClass = "";
+    switch(this.lista.prioridade) {
+      case 0: cssClass = "card bg-danger";
+      break;
+      
+      case 1: cssClass = "card bg-warning";
+      break;
+
+      case 2: cssClass = "card bg-info";
+      break;
+
+      case 3: cssClass = "card bg-info";
+      break;
+
+      case 4: cssClass = "card bg-light";
+      break;
+
+      default: cssClass = "card bg-light";
+      break;
+    }
+    
+    return cssClass;
+  }
 }

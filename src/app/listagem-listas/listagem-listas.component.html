@@ -1,7 +1,9 @@
 <div class="container-fluid">
   <div class="row">
-    <div *ngFor="let lista of listas" class="card bg-light col-sm-3">
-      <app-lista [lista]="lista"></app-lista>
+    <div *ngFor="let lista of listas" class="col-sm-3">
+        <div>
+          <app-lista [lista]="lista"></app-lista>
+        </div>
     </div>
   </div>
 </div>
