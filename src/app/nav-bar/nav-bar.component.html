@@ -1,32 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">2DO - LIST</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['/']">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/listas']">Minhas listas</a>
-            </li>                
-            <li ngbDropdown class="nav-item dropdown">
-                <button class="btn btn-outline-primary" id="acesso_rapido" ngbDropdownToggle>Acesso rápido</button>
-                <div ngbDropdownMenu aria-labelledby="acesso_rapido">
-                    <button ngbDropdownItem [routerLink]="['/nova-lista']">Nova lista</button>
-                    <button ngbDropdownItem>Listas já concluídas</button>
-                    <div class="dropdown-divider"></div>
-                    <button ngbDropdownItem [routerLink]="['/time']">Dados do grupo</button>
-                  </div>                    
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/views/list/create.html">Nova lista</a>
-                    <a class="dropdown-item" href="/views/list/finished.html">Listas já concluídas</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/views/info/team.html">Dados do grupo</a>
-                </div>
-            </li>
-        </ul>
-    </div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">2DO - LIST</a>
+  <button class="navbar-toggler hidden-sm-up" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed"
+    data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#" [routerLink]="['/']">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" [routerLink]="['/listas']">Minhas listas</a>
+      </li>
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="id01" ngbDropdownToggle>Acesso rápido</a>
+        <div class="dropdown-menu" aria-labelledby="id01" ngbDropdownMenu>
+          <a class="dropdown-item" [routerLink]="['/nova-lista']">Nova lista</a>
+          <a class="dropdown-item" href="#">TS</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/time']">Dados do grupo</a>
+        </div>
+      </li>
+    </ul>
+  </div>
 </nav>
