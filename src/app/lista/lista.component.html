@@ -7,14 +7,13 @@
     <div>
 
     </div>
-    <h5>Adicionar nova tarefa</h5>
+    <strong>Adicionar nova tarefa</strong>
     <div class="row">
       <input class="form-control col-10" [value]="novoItem" (input)="novoItem = $event.target.value">
       <button class="btn btn-success col-2" (click)="addTarefa()">+</button>
     </div>
     <p class="card-text">{{lista.observacao}}</p>
-    <a class="btn btn-success">Editar</a>
-    <a href="#" class="btn btn-warning">Concluir</a>
+    <a href="#" class="btn btn-success">Concluir</a>
     <a (click)="deleteItem()" class="btn btn-danger">Remover</a>
   </div>
 </div>
