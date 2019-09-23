@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ItemLista } from '../models/itemLista';
 
 @Component({
   selector: 'app-item-lista',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item-lista.component.css']
 })
 export class ItemListaComponent implements OnInit {
-
+  @Input() itemLista: ItemLista;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  check() {
+    this.itemLista.finalizada = !this.itemLista.finalizada;
   }
 
 }

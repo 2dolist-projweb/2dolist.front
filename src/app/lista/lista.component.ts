@@ -12,9 +12,11 @@ export class ListaComponent implements OnInit {
 
   @Input() lista: Lista;
   @Output() deleteLista = new EventEmitter();
+  novoItem: string = '';
   constructor (private listaService: ListaService, private router: Router) {}
 
   ngOnInit(): void {
+    this.refreshItems();
   } 
 
   deleteItem() {
@@ -22,6 +24,26 @@ export class ListaComponent implements OnInit {
       this.deleteLista.emit(true);
     });
     // this.router.navigateByUrl('/listas');
+  }
+
+  refreshItems() {
+    this.listaService.getItemsLista(this.lista.id).subscribe(retorno => {
+      this.lista.tarefas = retorno;
+    });
+  }
+
+  addTarefa() {
+    var task = {
+      descricao: this.novoItem,
+      IdLista: this.lista.id
+    };
+
+    this.listaService.addItemLista(task).subscribe(retorno => {
+      if (retorno) {
+        this.novoItem = '';
+        this.refreshItems();
+      }
+    })
   }
 
   bodyClass(): string

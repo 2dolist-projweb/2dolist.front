@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Lista } from '../models/lista';
 import { Observable } from 'rxjs';
+import { ItemLista } from '../models/itemLista';
 
 @Injectable({
     providedIn: 'root'
@@ -30,4 +31,12 @@ export class ListaService{
     deleteLista(id: number) {
         return this.http.delete(this.baseUrl + 'listas/' + id);
     }
+
+    getItemsLista(idLista: number) {
+        return this.http.get<ItemLista[]>(this.baseUrl + 'tarefalista/lista/' + idLista);        
+    }
+
+    addItemLista(itemLista: any) {
+        return this.http.post<Lista>(this.baseUrl + 'tarefalista/', itemLista);        
+    }    
 }
