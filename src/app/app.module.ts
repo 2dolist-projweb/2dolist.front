@@ -17,6 +17,11 @@ import { DadosGrupoComponent } from './dados-grupo/dados-grupo.component';
 import { NovaListaComponent } from './nova-lista/nova-lista.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListagemListasComponent } from './listagem-listas/listagem-listas.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { Injectable } from '@angular/core';
+import { SwUpdate } from '@angular/service-worker';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +40,8 @@ import { ListagemListasComponent } from './listagem-listas/listagem-listas.compo
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
