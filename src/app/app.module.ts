@@ -21,7 +21,15 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { Injectable } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
+import { AuthGuard } from './_guards/auth.guard';
+import { AuthService } from './services/auth.service';
+import { JwtModule } from '@auth0/angular-jwt';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -32,7 +40,9 @@ import { SwUpdate } from '@angular/service-worker';
     HomeComponent,
     DadosGrupoComponent,
     NovaListaComponent,
-    ListagemListasComponent
+    ListagemListasComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +51,19 @@ import { SwUpdate } from '@angular/service-worker';
     NgbModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+    JwtModule.forRoot({
+      config: {
+         tokenGetter: tokenGetter,
+         whitelistedDomains: ['localhost:5000'],
+         blacklistedRoutes: ['localhost/api/auth']
+      }
+    }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

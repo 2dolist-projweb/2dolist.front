@@ -18,6 +18,9 @@
           <a class="dropdown-item" [routerLink]="['/nova-lista']">Nova lista</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" [routerLink]="['/time']">Dados do grupo</a>
+          <a *ngIf="loggedIn()" class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a>
+          <a *ngIf="!loggedIn()" class="dropdown-item" href="#" [routerLink]="['/login']"><i class="fa fa-sign-out"></i> Login</a>
+          <a *ngIf="!loggedIn()" class="dropdown-item" href="#" [routerLink]="['/registrar']"><i class="fa fa-sign-out"></i> Registrar</a>
         </div>
       </li>
     </ul>
